@@ -1,6 +1,11 @@
 import './App.css';
 import Testimony from './components/Testimony.js';
 
+const testimonies = 'https://cocotero98.github.io/students-app/src/data/testimonies.json';
+fetch(testimonies)
+.then(response=>{if(response.ok){response.json()}})
+.then((data)=>{console.log(data.testimonies)})
+
 let shawn = {
   name:'Shawn Wang',
   country:'Singapore',
@@ -15,6 +20,8 @@ function App() {
     <div className="App">
       <div className='wrapper'>
         <h1>Here is what our alumni say about freeCodeCamp:</h1>
+        {/* {testimonies.forEach((testimony)=>{Testimony(testimony)})} */}
+        {Testimony(shawn)}
         <Testimony 
           name='Shawn Wang'
           country='Singapore'
